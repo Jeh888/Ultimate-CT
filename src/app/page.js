@@ -11,125 +11,135 @@ import { getRecentBlogs } from '@/data/blogs';
 
 export default function HomePage() {
   const boroughs = getBoroughs();
-  const featuredReviews = getFeaturedReviews(6);
+  const featuredReviews = getFeaturedReviews(3);
   const generalFaqs = getGeneralFaqs().slice(0, 5);
-  const recentBlogs = getRecentBlogs(4);
+  const recentBlogs = getRecentBlogs(3);
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-gray-900 text-white overflow-hidden min-h-[600px]">
+      {/* Hero Section - Elegant Asymmetric Layout */}
+      <section className="relative bg-primary-900 text-white overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1974')" }}
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/85 to-gray-900/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-950 via-primary-900/95 to-primary-900/80" />
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-block bg-accent-500 text-white text-sm font-semibold px-4 py-1 rounded-full mb-6">
-                Trusted by 10,000+ Londoners
-              </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 relative">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="max-w-xl">
+              <div className="w-12 h-0.5 bg-accent-400 mb-8" />
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6">
-                Look Your Best, Feel Your Best
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
+                London's Premier Aesthetic Treatment Service
               </h1>
               
-              <p className="text-xl text-gray-300 mb-8 max-w-lg">
-                Compare London's top aesthetic clinics and practitioners. Free quotes in 2 hours.
+              <p className="text-lg text-primary-100 mb-10 leading-relaxed">
+                Connecting you with verified, qualified aesthetic professionals. 
+                Experience excellence in cosmetic treatments across Greater London.
               </p>
               
-              {/* Trust Badges */}
-              <div className="grid grid-cols-3 gap-4 mb-8">
-                <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-white">500+</div>
-                  <div className="text-xs text-gray-300">Verified Clinics</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-white">4.9/5</div>
-                  <div className="text-xs text-gray-300">Patient Rating</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-white">2hr</div>
-                  <div className="text-xs text-gray-300">Avg Response</div>
-                </div>
-              </div>
-
-              {/* Social Proof */}
-              <div className="flex items-center space-x-3">
-                <div className="flex -space-x-2">
-                  <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
-                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
-                  <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
-                  <div className="w-10 h-10 rounded-full bg-primary-500 border-2 border-white flex items-center justify-center text-xs font-bold">+99</div>
-                </div>
-                <div className="text-sm text-gray-300">
-                  <span className="font-semibold text-white">127 people</span> requested quotes today
-                </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/free-quote"
+                  className="bg-white text-primary-900 px-8 py-4 text-sm tracking-wide hover:bg-cream-100 transition-colors text-center"
+                >
+                  Book Consultation
+                </Link>
+                <Link
+                  href="/treatments"
+                  className="border border-white/30 text-white px-8 py-4 text-sm tracking-wide hover:bg-white/10 transition-colors text-center"
+                >
+                  View Treatments
+                </Link>
               </div>
             </div>
 
-            <div>
+            <div className="hidden lg:block">
               <LeadForm 
-                title="Get 3 Free Quotes"
-                subtitle="Top clinics will call you within 2 hours"
+                title="Request a Consultation"
+                subtitle="Receive expert advice within 2 hours"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Intro Section */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
-              London's Premier Cosmetic Treatment Comparison Service
-            </h2>
-          </div>
-          
-          <div className="max-w-none text-gray-600">
-            <p className="mb-8 leading-relaxed text-lg">
-              Finding the right cosmetic treatment provider in London can feel overwhelming. With hundreds of clinics offering everything from Botox and dermal fillers to advanced skin rejuvenation therapies, how do you know which practitioner is right for you? That's where Cosmetic Treatment comes in. We've built the UK's most comprehensive comparison platform, connecting you with verified, qualified aesthetic professionals across Greater London and the surrounding areas.
-            </p>
-            
-            {/* Highlight Boxes */}
-            <div className="grid grid-cols-3 gap-4 my-10">
-              <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
-                <div className="text-3xl md:text-4xl font-bold text-primary-600 mb-1">500+</div>
-                <div className="text-sm font-medium text-gray-700">Verified Clinics</div>
+      {/* Mobile Form */}
+      <section className="lg:hidden bg-cream-100 py-12">
+        <div className="max-w-lg mx-auto px-4">
+          <LeadForm 
+            title="Request a Consultation"
+            subtitle="Receive expert advice within 2 hours"
+          />
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="text-xs uppercase tracking-wider text-accent-600 font-medium">About Us</span>
+              <h2 className="font-display text-3xl md:text-4xl text-gray-900 mt-4 mb-6">
+                A Comprehensive Approach to Aesthetic Excellence
+              </h2>
+              <div className="w-12 h-0.5 bg-accent-400 mb-8" />
+              
+              <div className="space-y-6 text-gray-600 leading-relaxed">
+                <p>
+                  Cosmetic Treatment provides a comprehensive and fully integrated comparison service, 
+                  connecting you with exceptional hand-picked aesthetic practitioners and clinics across London.
+                </p>
+                <p>
+                  Our network of medical professionals have devoted their careers to specialising within 
+                  their field of expertise. This enables us to offer each patient a complete service, 
+                  putting you at the centre of what we do: <em className="text-gray-900">delivering the right 
+                  treatment, at the right time, with the best outcomes.</em>
+                </p>
+                <p>
+                  We deliver a patient-centred model providing innovative modern treatments to meet 
+                  your demands. Focused on best patient outcomes and minimal downtime, we ensure each 
+                  individual treatment fits conveniently around your busy life.
+                </p>
               </div>
-              <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
-                <div className="text-3xl md:text-4xl font-bold text-primary-600 mb-1">2 Hrs</div>
-                <div className="text-sm font-medium text-gray-700">Quote Response</div>
-              </div>
-              <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
-                <div className="text-3xl md:text-4xl font-bold text-primary-600 mb-1">100%</div>
-                <div className="text-sm font-medium text-gray-700">Free Service</div>
-              </div>
+              
+              <Link 
+                href="/about" 
+                className="inline-block mt-8 text-primary-700 text-sm font-medium hover:text-primary-900 transition-colors"
+              >
+                Learn More About Us →
+              </Link>
             </div>
             
-            <p className="mb-6 leading-relaxed text-lg">
-              Our mission is simple: to help you make confident, informed decisions about your cosmetic treatments. Every clinic in our network has been carefully vetted for qualifications, patient reviews, and treatment outcomes. Whether you're considering your first aesthetic procedure or you're looking for a new provider, we take the guesswork out of the process by delivering personalised quotes from up to three top-rated clinics within just two hours.
-            </p>
-            
-            <p className="leading-relaxed text-lg">
-              From non-surgical treatments like lip fillers, chemical peels, and laser hair removal to more advanced procedures such as Profhilo, polynucleotides, and hair transplants, we cover the full spectrum of modern aesthetic medicine. Our service is completely free for patients—no hidden fees, no obligations. Simply tell us what you're looking for, and let London's best clinics compete for your business.
-            </p>
+            <div className="relative">
+              <img 
+                src="https://images.unsplash.com/photo-1629909615184-74f495363b67?q=80&w=800" 
+                alt="Aesthetic clinic consultation"
+                className="w-full h-auto"
+              />
+              {/* Stats overlay */}
+              <div className="absolute -bottom-8 -left-8 bg-primary-800 text-white p-8 hidden md:block">
+                <div className="text-4xl font-display text-accent-400 mb-2">500+</div>
+                <div className="text-sm text-primary-200">Verified Practitioners</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-20 md:py-28 bg-cream-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">
-              What Treatment Are You Looking For?
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-xs uppercase tracking-wider text-accent-600 font-medium">Our Treatments</span>
+            <h2 className="font-display text-3xl md:text-4xl text-gray-900 mt-4 mb-4">
+              Comprehensive Aesthetic Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Select a treatment to compare prices from verified London clinics
+            <div className="w-12 h-0.5 bg-accent-400 mx-auto mb-6" />
+            <p className="text-gray-600">
+              From non-surgical rejuvenation to advanced aesthetic procedures, 
+              delivered by highly specialised expert practitioners.
             </p>
           </div>
 
@@ -138,275 +148,133 @@ export default function HomePage() {
               <ServiceCard key={service.slug} service={service} />
             ))}
           </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/treatments"
+              className="inline-block border border-primary-700 text-primary-700 px-8 py-4 text-sm tracking-wide hover:bg-primary-700 hover:text-white transition-colors"
+            >
+              View All Treatments
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* Why Choose Us - Trust Signals */}
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">
-              Why Choose Cosmetic Treatment?
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-xs uppercase tracking-wider text-accent-600 font-medium">Why Choose Us</span>
+            <h2 className="font-display text-3xl md:text-4xl text-gray-900 mt-4 mb-4">
+              Excellence as Standard
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We're committed to connecting you with the best aesthetic providers in London
-            </p>
+            <div className="w-12 h-0.5 bg-accent-400 mx-auto" />
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Trust Signal 1 */}
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-              <div className="w-14 h-14 bg-primary-100 text-primary-600 rounded-xl flex items-center justify-center mb-5">
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            <div className="text-center p-8">
+              <div className="w-16 h-16 bg-cream-200 flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Verified Practitioners Only</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Every clinic in our network is thoroughly vetted. We verify GMC/NMC registrations, insurance, qualifications, and patient reviews before any provider can join our platform.
+              <h3 className="font-display text-xl text-gray-900 mb-3">Verified Practitioners</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Every clinic in our network undergoes thorough vetting. We verify GMC/NMC registrations, 
+                insurance, qualifications, and patient outcomes.
               </p>
             </div>
 
-            {/* Trust Signal 2 */}
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-              <div className="w-14 h-14 bg-accent-100 text-accent-600 rounded-xl flex items-center justify-center mb-5">
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <div className="text-center p-8">
+              <div className="w-16 h-16 bg-cream-200 flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">100% Free Service</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Our comparison service is completely free for patients. No hidden charges, no booking fees, no obligation. Get quotes, compare options, and decide on your own terms.
+              <h3 className="font-display text-xl text-gray-900 mb-3">Prompt Response</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Receive personalised recommendations from qualified practitioners within 2 hours. 
+                Our streamlined process respects your time.
               </p>
             </div>
 
-            {/* Trust Signal 3 */}
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-              <div className="w-14 h-14 bg-green-100 text-green-600 rounded-xl flex items-center justify-center mb-5">
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            <div className="text-center p-8">
+              <div className="w-16 h-16 bg-cream-200 flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Fast Response Times</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Receive calls from up to 3 qualified clinics within 2 hours of your enquiry. Our streamlined process means you can compare quotes and book consultations the same day.
+              <h3 className="font-display text-xl text-gray-900 mb-3">London-Wide Coverage</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                With 500+ partner clinics across 100+ London locations, we connect you with 
+                quality providers near your home or workplace.
               </p>
             </div>
 
-            {/* Trust Signal 4 */}
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-              <div className="w-14 h-14 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-5">
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            <div className="text-center p-8">
+              <div className="w-16 h-16 bg-cream-200 flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">London-Wide Coverage</h3>
-              <p className="text-gray-600 leading-relaxed">
-                With 500+ partner clinics across 100+ London locations, from Central London to the suburbs, we'll connect you with quality providers near your home or workplace.
+              <h3 className="font-display text-xl text-gray-900 mb-3">Complimentary Service</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Our comparison service is entirely free for patients. No hidden charges, 
+                no booking fees, no obligation whatsoever.
               </p>
             </div>
 
-            {/* Trust Signal 5 */}
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-              <div className="w-14 h-14 bg-yellow-100 text-yellow-600 rounded-xl flex items-center justify-center mb-5">
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+            <div className="text-center p-8">
+              <div className="w-16 h-16 bg-cream-200 flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Genuine Patient Reviews</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Read authentic reviews from real patients. Our 4.9/5 average rating across 2,800+ reviews helps you choose practitioners with proven track records.
+              <h3 className="font-display text-xl text-gray-900 mb-3">Expert Guidance</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Access comprehensive treatment guides and expert articles to help you 
+                understand your options before consultation.
               </p>
             </div>
 
-            {/* Trust Signal 6 */}
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-              <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-5">
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            <div className="text-center p-8">
+              <div className="w-16 h-16 bg-cream-200 flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Expert Guidance</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Not sure which treatment is right for you? Our comprehensive guides and blog articles help you understand your options before you speak to a clinic.
+              <h3 className="font-display text-xl text-gray-900 mb-3">Patient-Centred Care</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Your wellbeing is paramount. We connect you with practitioners who prioritise 
+                safety, quality, and natural-looking results.
               </p>
             </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              href="/free-quote"
-              className="inline-block bg-accent-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-accent-600 transition text-lg shadow-lg hover:shadow-xl"
-            >
-              Get Your Free Quotes Today →
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      {/* Testimonials */}
+      <section className="py-20 md:py-28 bg-cream-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">
-              Get Quotes in 3 Simple Steps
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-xs uppercase tracking-wider text-accent-600 font-medium">Patient Testimonials</span>
+            <h2 className="font-display text-3xl md:text-4xl text-gray-900 mt-4 mb-4">
+              What Our Patients Say
             </h2>
+            <div className="w-12 h-0.5 bg-accent-400 mx-auto" />
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-primary-100 text-primary-600 rounded-2xl flex items-center justify-center text-3xl font-bold mx-auto mb-4">
-                1
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Tell Us What You Need</h3>
-              <p className="text-gray-600">
-                Pick your treatment and location. Takes 30 seconds.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-20 h-20 bg-primary-100 text-primary-600 rounded-2xl flex items-center justify-center text-3xl font-bold mx-auto mb-4">
-                2
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Get Calls From Top Clinics</h3>
-              <p className="text-gray-600">
-                Up to 3 verified clinics will call you within 2 hours with quotes.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-20 h-20 bg-primary-100 text-primary-600 rounded-2xl flex items-center justify-center text-3xl font-bold mx-auto mb-4">
-                3
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Book Your Consultation</h3>
-              <p className="text-gray-600">
-                Compare prices and reviews. Choose the best fit for you.
-              </p>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              href="/free-quote"
-              className="inline-block bg-accent-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-accent-600 transition text-lg shadow-lg hover:shadow-xl"
-            >
-              Get 3 Free Quotes →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Blog Snippets Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">
-              Latest From Our Blog
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Expert advice, treatment guides, and industry insights to help you make informed decisions
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {recentBlogs.map((blog) => (
-              <article key={blog.slug} className="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition group">
-                <div className="p-6">
-                  <div className="text-xs font-semibold text-primary-600 uppercase tracking-wider mb-2">
-                    {blog.category || 'Treatment Guide'}
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition line-clamp-2">
-                    <Link href={`/blog/${blog.slug}`}>
-                      {blog.title}
-                    </Link>
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                    {blog.excerpt}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-gray-500">{blog.author}</span>
-                    <Link 
-                      href={`/blog/${blog.slug}`}
-                      className="text-sm font-semibold text-primary-600 hover:text-primary-700 transition"
-                    >
-                      Read More →
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Link
-              href="/blog"
-              className="inline-block bg-gray-900 text-white px-8 py-4 rounded-lg font-bold hover:bg-gray-800 transition"
-            >
-              View All Articles →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Locations */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">
-              Find Clinics Near You
-            </h2>
-            <p className="text-xl text-gray-600">
-              100+ locations across London
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {boroughs.map((borough) => (
-              <Link
-                key={borough.slug}
-                href={`/locations/${borough.slug}`}
-                className="bg-white rounded-lg p-4 border border-gray-200 hover:border-primary-300 hover:shadow-md transition group text-center"
-              >
-                <h3 className="font-semibold text-gray-900 group-hover:text-primary-600 transition">
-                  {borough.name}
-                </h3>
-              </Link>
-            ))}
-          </div>
-
-          <div className="text-center mt-8">
-            <Link
-              href="/locations"
-              className="text-primary-600 font-semibold hover:text-primary-700 transition"
-            >
-              View All 100+ Locations →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Reviews Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">
-              Real Results From Real Patients
-            </h2>
-            <div className="flex items-center justify-center space-x-2">
-              <div className="flex text-yellow-400 text-xl">★★★★★</div>
-              <span className="text-gray-600">4.9/5 from 2,847 reviews</span>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredReviews.map((review) => (
               <ReviewCard key={review.id} review={review} />
             ))}
           </div>
 
-          <div className="text-center mt-8">
+          <div className="text-center mt-12">
             <Link
               href="/reviews"
-              className="text-primary-600 font-semibold hover:text-primary-700 transition"
+              className="inline-block text-primary-700 text-sm font-medium hover:text-primary-900 transition-colors"
             >
               Read More Reviews →
             </Link>
@@ -414,21 +282,110 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Locations */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-xs uppercase tracking-wider text-accent-600 font-medium">Our Locations</span>
+            <h2 className="font-display text-3xl md:text-4xl text-gray-900 mt-4 mb-4">
+              Serving All of London
+            </h2>
+            <div className="w-12 h-0.5 bg-accent-400 mx-auto mb-6" />
+            <p className="text-gray-600">
+              Find qualified aesthetic practitioners across Greater London
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {boroughs.slice(0, 15).map((borough) => (
+              <Link
+                key={borough.slug}
+                href={`/locations/${borough.slug}`}
+                className="bg-cream-100 p-4 text-center hover:bg-primary-700 hover:text-white transition-colors group"
+              >
+                <span className="text-sm font-medium text-gray-700 group-hover:text-white transition-colors">
+                  {borough.name}
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/locations"
+              className="inline-block text-primary-700 text-sm font-medium hover:text-primary-900 transition-colors"
+            >
+              View All 100+ Locations →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Journal/Blog Section */}
+      <section className="py-20 md:py-28 bg-cream-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-xs uppercase tracking-wider text-accent-600 font-medium">Journal</span>
+            <h2 className="font-display text-3xl md:text-4xl text-gray-900 mt-4 mb-4">
+              Expert Insights & Advice
+            </h2>
+            <div className="w-12 h-0.5 bg-accent-400 mx-auto" />
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {recentBlogs.map((blog) => (
+              <article key={blog.slug} className="bg-white group">
+                <div className="p-8">
+                  <span className="text-xs uppercase tracking-wider text-accent-600 font-medium">
+                    {blog.category || 'Treatment Guide'}
+                  </span>
+                  <h3 className="font-display text-xl text-gray-900 mt-3 mb-4 group-hover:text-primary-700 transition-colors">
+                    <Link href={`/blog/${blog.slug}`}>
+                      {blog.title}
+                    </Link>
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3">
+                    {blog.excerpt}
+                  </p>
+                  <Link 
+                    href={`/blog/${blog.slug}`}
+                    className="text-primary-700 text-sm font-medium hover:text-primary-900 transition-colors"
+                  >
+                    Read Article →
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/blog"
+              className="inline-block border border-primary-700 text-primary-700 px-8 py-4 text-sm tracking-wide hover:bg-primary-700 hover:text-white transition-colors"
+            >
+              View All Articles
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">
+          <div className="text-center mb-16">
+            <span className="text-xs uppercase tracking-wider text-accent-600 font-medium">FAQs</span>
+            <h2 className="font-display text-3xl md:text-4xl text-gray-900 mt-4 mb-4">
               Common Questions
             </h2>
+            <div className="w-12 h-0.5 bg-accent-400 mx-auto" />
           </div>
 
           <FAQAccordion faqs={generalFaqs} />
 
-          <div className="text-center mt-8">
+          <div className="text-center mt-10">
             <Link
               href="/faq"
-              className="text-primary-600 font-semibold hover:text-primary-700 transition"
+              className="inline-block text-primary-700 text-sm font-medium hover:text-primary-900 transition-colors"
             >
               View All FAQs →
             </Link>
@@ -437,25 +394,26 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 md:py-24 bg-gray-900 text-white relative overflow-hidden">
+      <section className="py-20 md:py-28 bg-primary-900 text-white relative overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1974')" }}
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068')" }}
         />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-            Your Best Look Is One Click Away
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+          <div className="w-12 h-0.5 bg-accent-400 mx-auto mb-8" />
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-6">
+            Begin Your Journey Today
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Join 10,000+ Londoners who found their ideal cosmetic treatment provider
+          <p className="text-lg text-primary-200 mb-10 max-w-xl mx-auto">
+            Connect with London's finest aesthetic practitioners. 
+            Complimentary consultations, no obligation.
           </p>
           <Link
             href="/free-quote"
-            className="inline-block bg-accent-500 text-white px-10 py-5 rounded-lg font-bold hover:bg-accent-600 transition text-xl shadow-lg hover:shadow-xl"
+            className="inline-block bg-white text-primary-900 px-10 py-4 text-sm tracking-wide hover:bg-cream-100 transition-colors"
           >
-            Get 3 Free Quotes Now →
+            Request Consultation
           </Link>
-          <p className="mt-4 text-gray-400 text-sm">No spam. No obligation. Just quotes from top clinics.</p>
         </div>
       </section>
     </>
