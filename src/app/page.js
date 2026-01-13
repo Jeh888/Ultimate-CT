@@ -81,7 +81,7 @@ export default function HomePage() {
       </section>
 
       {/* Intro Section */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
@@ -89,16 +89,32 @@ export default function HomePage() {
             </h2>
           </div>
           
-          <div className="prose prose-lg max-w-none text-gray-600">
-            <p className="mb-6 leading-relaxed">
+          <div className="max-w-none text-gray-600">
+            <p className="mb-8 leading-relaxed text-lg">
               Finding the right cosmetic treatment provider in London can feel overwhelming. With hundreds of clinics offering everything from Botox and dermal fillers to advanced skin rejuvenation therapies, how do you know which practitioner is right for you? That's where Cosmetic Treatment comes in. We've built the UK's most comprehensive comparison platform, connecting you with verified, qualified aesthetic professionals across Greater London and the surrounding areas.
             </p>
             
-            <p className="mb-6 leading-relaxed">
+            {/* Highlight Boxes */}
+            <div className="grid grid-cols-3 gap-4 my-10">
+              <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
+                <div className="text-3xl md:text-4xl font-bold text-primary-600 mb-1">500+</div>
+                <div className="text-sm font-medium text-gray-700">Verified Clinics</div>
+              </div>
+              <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
+                <div className="text-3xl md:text-4xl font-bold text-primary-600 mb-1">2 Hrs</div>
+                <div className="text-sm font-medium text-gray-700">Quote Response</div>
+              </div>
+              <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
+                <div className="text-3xl md:text-4xl font-bold text-primary-600 mb-1">100%</div>
+                <div className="text-sm font-medium text-gray-700">Free Service</div>
+              </div>
+            </div>
+            
+            <p className="mb-6 leading-relaxed text-lg">
               Our mission is simple: to help you make confident, informed decisions about your cosmetic treatments. Every clinic in our network has been carefully vetted for qualifications, patient reviews, and treatment outcomes. Whether you're considering your first aesthetic procedure or you're looking for a new provider, we take the guesswork out of the process by delivering personalised quotes from up to three top-rated clinics within just two hours.
             </p>
             
-            <p className="leading-relaxed">
+            <p className="leading-relaxed text-lg">
               From non-surgical treatments like lip fillers, chemical peels, and laser hair removal to more advanced procedures such as Profhilo, polynucleotides, and hair transplants, we cover the full spectrum of modern aesthetic medicine. Our service is completely free for patients—no hidden fees, no obligations. Simply tell us what you're looking for, and let London's best clinics compete for your business.
             </p>
           </div>
